@@ -32,9 +32,7 @@ pipeline {
         script {
             def WORKSPACE = pwd()
             def BUILD_NUMBER = "${currentBuild.number}"
-            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'jmx']], submoduleCfg: [], userRemoteConfigs: [[name: 'jmx', url: 'https://github.com/SupLinux/jmx.git']]])
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[name: 'jmeter-openshift', url: 'https://github.com/SupLinux/jmeter-openshift.git']]])    
-            sh "ls"
             sh "pwd"
             performanceTestBuilder excludedTransactionPattern: '', fallbackTimezone: 'UTC', keepBuilds: 5, perfchartsCommand: "sh openshift/gen_report.sh $WORKSPACE $BUILD_NUMBER", performanceTesters: [[$class: 'JmeterPerformanceTester', disabled: false, jmeterArgs: '', jmeterCommand: "sh $WORKSPACE/openshift/run_test.sh $WORKSPACE $BUILD_NUMBER", jmxExcludingPattern: '', jmxIncludingPattern: 'openshift/test.jmx', noAutoJTL: false]], reportTemplate: 'perf-baseline', resultDir: 'perf-output/'
         }
