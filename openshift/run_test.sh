@@ -22,7 +22,8 @@ fi
 echo $*
 
 #Gnerate a identifier as fileter
-filter=`echo $[$(date +%s%N)/1000000]`
+# filter=`echo $[$(date +%s%N)/1000000]`
+filter="1581470518539"
 cd $WORKSPACE/openshift && sh jmeter_cluster_create.sh "$filter" $SLAVES_NUM 
 
 # create workspace
