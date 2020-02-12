@@ -22,7 +22,7 @@ objects:
       if [ $# == 2 ] ; then
           additional_param=$2
       fi
-      /jmeter/apache-jmeter-4.0/bin/jmeter -n -t $1 -Dserver.rmi.ssl.disable=true -R `getent ahostsv4 jmeter-slaves-svc-${FILTER} | cut -d' ' -f1 | sort -u | awk -v ORS=, '{print $1}' | sed 's/,$//'` -l /tmp/test_result_${FILTER}.jtl $additional_param
+      /jmeter/apache-jmeter-5.0/bin/jmeter -n -t $1 -Dserver.rmi.ssl.disable=true -R `getent ahostsv4 jmeter-slaves-svc-${FILTER} | cut -d' ' -f1 | sort -u | awk -v ORS=, '{print $1}' | sed 's/,$//'` -l /tmp/test_result_${FILTER}.jtl $additional_param
 parameters:
   - name: FILTER
     description: "use to filter out them for removing after test finished"
