@@ -9,4 +9,4 @@ tenant=`awk '{print $NF}' $working_dir/tenant_export`
 
 master_pod=`kubectl get pod | grep jmeter-master | awk '{print $1}'`
 
-oc exec -ti $master_pod -- /bin/bash /jmeter/apache-jmeter-4.0/bin/stoptest.sh
+oc exec -ti $master_pod -- /bin/bash /jmeter/apache-jmeter-5.0/bin/stoptest.sh
