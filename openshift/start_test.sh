@@ -45,6 +45,6 @@ oc exec -ti $master_pod -- /bin/bash /jmeter/load_test2 "$jmeter_script" "$extra
 oc rsync $master_pod:/tmp/test_result_$filter.jtl /tmp/
 
 #clean all jmeter pods
-oc delete all -l jmeter_mode=slaves-$filter
-oc delete all -l jmeter_mode=master-$filter
-oc delete configmap jmeter-load-test-$filter
+# oc delete all -l jmeter_mode=slaves-$filter
+# oc delete all -l jmeter_mode=master-$filter
+# oc delete configmap jmeter-load-test-$filter
