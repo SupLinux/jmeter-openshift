@@ -1,6 +1,7 @@
 FROM cloudssky/jmeter-base:latest
 MAINTAINER Kubernauts-lab
 		
+WORKING /jmeter
 EXPOSE 1099 50000
 		
 ENTRYPOINT $JMETER_HOME/bin/jmeter-server \
