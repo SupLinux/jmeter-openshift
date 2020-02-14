@@ -30,7 +30,7 @@ echo $slave_pods
 # Copy performance test scripts with relevant data into JMeter clusters
 oc rsync $jmeter_script_dir $master_pod:/jmeter/
 oc exec -it $master_pod --  ls -l "/jmeter/"
-oc exec -it $master_pod -- whoami
+oc exec -it $master_pod --  ls -dl "/jmeter"
 for slave_pod in $slave_pods; do
     oc rsync $jmeter_script_dir $slave_pod:/jmeter/
     oc exec -it $slave_pod -- ls -l "/jmeter/"
@@ -43,6 +43,6 @@ oc exec -ti $master_pod -- /bin/bash /jmeter/load_test "$jmeter_script" "$extra_
 oc rsync $master_pod:/tmp/test_result_$filter.jtl /tmp/
 
 #clean all jmeter pods
-oc delete all -l jmeter_mode=slaves-$filter
-oc delete all -l jmeter_mode=master-$filter
-oc delete configmap jmeter-load-test-$filter
+# oc delete all -l jmeter_mode=slaves-$filter
+# oc delete all -l jmeter_mode=master-$filter
+# oc delete configmap jmeter-load-test-$filter
