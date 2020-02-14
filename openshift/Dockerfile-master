@@ -1,4 +1,5 @@
 FROM cloudssky/jmeter-base:latest
 MAINTAINER Kubernauts-lab
+WORKING /jmeter
 		
 EXPOSE 60000
