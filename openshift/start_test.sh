@@ -38,6 +38,7 @@ done
 
 ## Echo Starting Jmeter load test
 oc exec -it $master_pod -- cp  /jmeter/load_test /jmeter/load_test2
+oc exec -it $master_pod -- chmod -R 777 /jmeter/openshift
 oc exec -ti $master_pod -- /bin/bash /jmeter/load_test2 "$jmeter_script" "$extra_param"
 
 #copy result out
