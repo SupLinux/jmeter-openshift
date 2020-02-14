@@ -37,15 +37,13 @@ for slave_pod in $slave_pods; do
 done
 
 ## Echo Starting Jmeter load test
-# oc exec -it $master_pod -- cp  /jmeter/load_test /jmeter/load_test2
 oc exec -it $master_pod -- chmod -R 777 /jmeter/openshift
-# oc exec -it $master_pod -- chmod +x /jmeter/load_test2
 oc exec -ti $master_pod -- /bin/bash /jmeter/load_test "/jmeter/$jmeter_script" "$extra_param"
 
 #copy result out
 oc rsync $master_pod:/tmp/test_result_$filter.jtl /tmp/
 
 #clean all jmeter pods
-# oc delete all -l jmeter_mode=slaves-$filter
-# oc delete all -l jmeter_mode=master-$filter
-# oc delete configmap jmeter-load-test-$filter
+oc delete all -l jmeter_mode=slaves-$filter
+oc delete all -l jmeter_mode=master-$filter
+oc delete configmap jmeter-load-test-$filter
