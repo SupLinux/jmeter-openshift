@@ -37,7 +37,7 @@ for slave_pod in $slave_pods; do
 done
 
 ## Echo Starting Jmeter load test
-oc exec -it $master_pod -- /bin/bash cp  /jmeter/load_test /jmeter/load_test2
+oc exec -it $master_pod -- cp  /jmeter/load_test /jmeter/load_test2
 oc exec -ti $master_pod -- /bin/bash /jmeter/load_test2 "$jmeter_script" "$extra_param"
 
 #copy result out
