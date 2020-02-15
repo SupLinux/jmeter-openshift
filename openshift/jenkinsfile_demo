@@ -36,7 +36,7 @@ pipeline {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'jmx']], submoduleCfg: [], userRemoteConfigs: [[name: 'jmx', url: 'https://github.com/SupLinux/jmx.git']]])
             sh "pwd"
             sh "ls"
-            performanceTestBuilder excludedTransactionPattern: '', fallbackTimezone: 'UTC', keepBuilds: 5, perfchartsCommand: "sh openshift/gen_report.sh $WORKSPACE $BUILD_NUMBER", performanceTesters: [[$class: 'JmeterPerformanceTester', disabled: false, jmeterArgs: '', jmeterCommand: "sh $WORKSPACE/openshift/run_test.sh $WORKSPACE $BUILD_NUMBER", jmxExcludingPattern: '', jmxIncludingPattern: 'jmx/HRD.jmx', noAutoJTL: false]], reportTemplate: 'perf-baseline', resultDir: 'perf-output/'
+            performanceTestBuilder perfchartsCommand: "sh openshift/gen_report.sh $WORKSPACE $BUILD_NUMBER", performanceTesters: Jmeter(jmeterCommand: "sh $WORKSPACE/openshift/run_test.sh $WORKSPACE $BUILD_NUMBER",jmxIncludingPattern: 'jmx/HRD.jmx')
         }
       }
     }
