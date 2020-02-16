@@ -34,6 +34,8 @@ oc cp $WORKSPACE/perf-output/builds/$BUILD_NUMBER/rawdata/*.jtl $perfchart_pod:/
 oc exec -ti $perfchart_pod -- perfcharts gen perf-general -d /tmp/report -o /tmp/report/mono_report.html -z UTC /tmp/
 
 #copy reports back
+echo "copy reports back"
+ls
 oc rsync $perfchart_pod:/tmp/report $WORKSPACE/perf-output/builds/$BUILD_NUMBER/
 pwd 
 ls $WORKSPACE/perf-output/builds/$BUILD_NUMBER/
