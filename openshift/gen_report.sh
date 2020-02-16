@@ -11,8 +11,8 @@ BUILD_NUMBER=$2
 cd $WORKSPACE/openshift
 
 # depoly perfchart which uses to generate test report
-# filter=`date +%s`
-fileter="1581824008"
+filter=`date +%s`
+# fileter="1581824008"
 oc process -f perfchart_dc_template.yaml -p FILTER=$filter | oc create -f -
 
 # check if pod is running 
@@ -35,7 +35,6 @@ oc exec -ti $perfchart_pod -- perfcharts gen perf-general -d /tmp/report -o /tmp
 
 #copy reports back
 oc rsync $perfchart_pod:/tmp/report $WORKSPACE/perf-output/builds/$BUILD_NUMBER/
-echo "------"
 pwd 
 ls $WORKSPACE/perf-output/builds/$BUILD_NUMBER/
 #clean all pods
