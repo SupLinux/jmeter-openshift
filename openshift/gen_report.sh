@@ -4,7 +4,7 @@ if [ $# -lt 2 ]; then
     echo "Please input parameters are not enough, please check them"
     exit 1
 fi
-
+echo "1111111111"
 WORKSPACE=$1
 BUILD_NUMBER=$2
 
@@ -25,6 +25,7 @@ while [ $count -lt 60 ]; do
     echo "waiting for report-engine ready..."
     sleep 3 
 done
+echo "2222222222222"
 
 # copy test results to perfchart pod
 perfchart_pod=`oc get pod  | grep "perfchart-$filter" | awk '{print $1}'`
