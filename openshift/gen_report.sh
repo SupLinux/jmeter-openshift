@@ -11,7 +11,8 @@ BUILD_NUMBER=$2
 cd $WORKSPACE/openshift
 
 # depoly perfchart which uses to generate test report
-filter=`date +%s`
+# filter=`date +%s`
+fileter="1581660822831"
 oc process -f perfchart_dc_template.yaml -p FILTER=$filter | oc create -f -
 
 # check if pod is running 
