@@ -30,6 +30,7 @@ done
 perfchart_pod=`oc get pod  | grep "perfchart-$filter" | awk '{print $1}'`
 oc cp $WORKSPACE/perf-output/builds/$BUILD_NUMBER/rawdata/*.jtl $perfchart_pod:/tmp/
 
+echo "123456789"
 #generate test report
 oc exec -ti $perfchart_pod -- perfcharts gen perf-general -d /tmp/report -o /tmp/report/mono_report.html -z UTC /tmp/
 
