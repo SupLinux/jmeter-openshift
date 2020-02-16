@@ -42,4 +42,4 @@ oc rsync $perfchart_pod:/tmp/report $WORKSPACE/perf-output/builds/$BUILD_NUMBER/
 pwd 
 ls $WORKSPACE/perf-output/builds/$BUILD_NUMBER/
 #clean all pods
-# oc delete all -l jmeter_report="perfchart-$filter"
+oc delete all -l jmeter_report="perfchart-$filter"
