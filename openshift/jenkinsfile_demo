@@ -34,7 +34,7 @@ pipeline {
             def BUILD_NUMBER = "${currentBuild.number}"
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[name: 'jmeter-openshift', url: 'https://github.com/SupLinux/jmeter-openshift.git']]])    
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'jmx']], submoduleCfg: [], userRemoteConfigs: [[name: 'jmx', url: 'https://github.com/SupLinux/jmx.git']]])
-            performanceTestBuilder  performanceTesters: [Jmeter(jmxIncludingPattern: 'jmx/*.jmx',jmeterArgs: '')]
+            performanceTestBuilder  performanceTesters: [Jmeter()]
           }
       }
     }
