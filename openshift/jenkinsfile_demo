@@ -36,7 +36,7 @@ pipeline {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'jmx']], submoduleCfg: [], userRemoteConfigs: [[name: 'jmx', url: 'https://github.com/SupLinux/jmx.git']]])
             sh "pwd"
             sh "ls"
-            performanceTestBuilder perfchartsCommand: "sh openshift/gen_report.sh $WORKSPACE $BUILD_NUMBER", performanceTesters: [Jmeter(jmeterCommand: "sh $WORKSPACE/openshift/run_test.sh $WORKSPACE $BUILD_NUMBER",jmxIncludingPattern: 'jmx/HRD.jmx',jmeterArgs: '')]
+            performanceTestBuilder perfchartsCommand: "echo 123", performanceTesters: [Jmeter(jmeterCommand: "sh $WORKSPACE/openshift/run_test.sh $WORKSPACE $BUILD_NUMBER",jmxIncludingPattern: 'jmx/HRD.jmx',jmeterArgs: '')]
         }
       }
     }
