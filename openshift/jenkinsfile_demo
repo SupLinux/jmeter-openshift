@@ -28,7 +28,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh "oc login ${OPENSHIFT_URL} -u ${USER} -p ${PASSWORD} -n ${PROJECT} --insecure-skip-tls-verify; oc get pods"
+        sh "oc login ${OPENSHIFT_URL} --token=${TOKEN} -n ${PROJECT} --insecure-skip-tls-verify; oc get pods"
         script {
             def WORKSPACE = pwd()
             def BUILD_NUMBER = "${currentBuild.number}"
