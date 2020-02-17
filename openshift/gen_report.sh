@@ -9,7 +9,8 @@ WORKSPACE=$1
 BUILD_NUMBER=$2
 
 cd $WORKSPACE/openshift
-
+echo $WORKSPACE
+ls $WORKSPACE
 # depoly perfchart which uses to generate test report
 filter=`date +%s`
 # fileter="1581824008"
