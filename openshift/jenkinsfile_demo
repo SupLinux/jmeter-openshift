@@ -38,7 +38,7 @@ pipeline {
             sh "ls"
             performanceTestBuilder perfchartsCommand: "sh openshift/gen_report.sh $WORKSPACE $BUILD_NUMBER", performanceTesters: [Jmeter(jmeterCommand: "sh $WORKSPACE/openshift/run_test.sh $WORKSPACE $BUILD_NUMBER",jmxIncludingPattern: 'jmx/HRD.jmx',jmeterArgs: '')]
             sh "ls $WORKSPACE/perf-output/builds/$BUILD_NUMBER/"
-            oc rsync "$WORKSPACE/perf-output/builds/$BUILD_NUMBER/report"  jenkins-2-h6pbr:/var/lib/jenkins/jobs/perf-pipline/builds/$BUILD_NUMBER/perfcharts/
+            oc rsync "$WORKSPACE/perf-output/builds/$BUILD_NUMBER/report"  "jenkins-2-h6pbr:/var/lib/jenkins/jobs/perf-pipline/builds/$BUILD_NUMBER/perfcharts/"
             }
       }
     }
