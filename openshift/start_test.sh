@@ -28,10 +28,10 @@ echo $master_pod
 echo $slave_pods
 
 # Copy performance test scripts with relevant data into JMeter clusters
-oc rsync $jmeter_script_dir $master_pod:/jmeter/
+oc rsync $jmeter_script_dir $master_pod:/jmeter/ | echo > /dev/null
 
 for slave_pod in $slave_pods; do
-    oc rsync $jmeter_script_dir $slave_pod:/jmeter/
+    oc rsync $jmeter_script_dir $slave_pod:/jmeter/ | echo > /dev/null
 done
 
 ## Echo Starting Jmeter load test
