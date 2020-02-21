@@ -54,9 +54,6 @@ parameters:
     value: "100"
   - name: NUMBER 
     description: "the number of JMeter slave instances will be launched"
-    valueFrom:
-      configMapKeyRef:
-        name: number-config
-        key: number
+    value: "2"
 labels:
   jmeter: jmeter-slaves
