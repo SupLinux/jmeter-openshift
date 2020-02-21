@@ -54,6 +54,6 @@ parameters:
     value: "100"
   - name: NUMBER 
     description: "the number of JMeter slave instances will be launched"
-    value: "2"
+    value: "3"
 labels:
   jmeter: jmeter-slaves
