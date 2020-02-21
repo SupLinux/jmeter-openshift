@@ -10,10 +10,7 @@ BUILD_NUMBER=$2
 TEST_SCRIPT=$3
 EXTRA_PARAM=""
 SLAVES_NUM=2
-
-if [ $# -eq 4 ]; then
-    SLAVES_NUM=$4 
-fi
+SLAVES_NUM=$4 
 
 if [ $# -eq 5 ]; then
     EXTRA_PARAM=$5
