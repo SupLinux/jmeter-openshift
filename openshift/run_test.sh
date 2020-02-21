@@ -12,11 +12,11 @@ EXTRA_PARAM=""
 SLAVES_NUM=2
 
 if [ $# -eq 4 ]; then
-    EXTRA_PARAM=$4
+    SLAVES_NUM=$4 
 fi
 
 if [ $# -eq 5 ]; then
-    SLAVES_NUM=$5 
+    EXTRA_PARAM=$5
 fi
 
 echo $*
