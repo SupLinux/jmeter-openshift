@@ -15,7 +15,9 @@ if [ $# -eq 4 ]; then
 fi
 
 if [ $# -eq 5 ]; then
-    EXTRA_PARAM=$5
+    EXTRA_PARAM=$3
+    TEST_SCRIPT=$4
+    SLAVES_NUM=$5
 fi
 
 echo $*
