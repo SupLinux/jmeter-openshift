@@ -37,7 +37,6 @@ oc exec -ti $perfchart_pod -- perfcharts gen perf-general -d /tmp/report -o /tmp
 
 #copy reports back
 oc rsync $perfchart_pod:/tmp/report $WORKSPACE/perf-output/builds/$BUILD_NUMBER/
-echo "hello" > $WORKSPACE/perf-output/builds/$BUILD_NUMBER/test.txt
 oc rsync "$WORKSPACE/perf-output/builds/$BUILD_NUMBER/report"  "jenkins-2-h6pbr:/var/lib/jenkins/jobs/perf-pipline/builds/$BUILD_NUMBER/perfcharts/"
 
 #clean all pods
