@@ -33,6 +33,8 @@ perfchart_pod=`oc get pod  | grep "perfchart-$filter" | awk '{print $1}'`
 oc cp $WORKSPACE/perf-output/builds/$BUILD_NUMBER/rawdata/*.jtl $perfchart_pod:/tmp/
 
 #generate test report
+oc exec -it jenkins-2-h6pbr -- mkdir  /var/lib/jenkins/jobs/perf-pipline/builds/$BUILD_NUMBER/perfcharts/perfcharts
+oc exec -it jenkins-2-h6pbr -- chmod 777  /var/lib/jenkins/jobs/perf-pipline/builds/$BUILD_NUMBER/perfcharts/perfcharts
 oc exec -ti $perfchart_pod -- perfcharts gen perf-general -d /tmp/report -o /tmp/report/mono_report.html -z UTC /tmp/
 
 #copy reports back
