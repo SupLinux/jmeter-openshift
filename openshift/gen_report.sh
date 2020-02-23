@@ -7,6 +7,8 @@ fi
 
 WORKSPACE=$1
 BUILD_NUMBER=$2
+reportType=$4
+timeZone=$10
 
 cd $WORKSPACE/openshift
 echo $WORKSPACE
