@@ -22,12 +22,9 @@ echo "Current list of projects on the OpenShift cluster:"
 
 filter=$1
 slave_num=$2
-#tenant=$3
 cpu=$3
 mem=$4
 
-echo $*
-oc project perf-tests
 
 echo
 
