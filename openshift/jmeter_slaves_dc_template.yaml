@@ -44,11 +44,11 @@ objects:
             protocol: TCP
           resources:
             requests:
-              memory: 368Mi
-              cpu: 200m
+              memory: ${MEM}
+              cpu: ${CPU}
             limits:
-              memory: 512Mi
-              cpu: 300m
+              memory: 2000Mi
+              cpu: 2000m
           terminationMessagePath: /dev/termination-log
         dnsPolicy: ClusterFirst
         restartPolicy: Always
@@ -61,5 +61,11 @@ parameters:
   - name: NUMBER 
     description: "the number of JMeter slave instances will be launched"
     value: "2"
+  - name: CPU 
+    description: "the number of each Jmeter slave cpu"
+    value: "2000m"
+  - name: MEM
+    description: "the number of each JMeter slave mem"
+    value: "2000Mi"
 labels:
   jmeter: jmeter-slaves
