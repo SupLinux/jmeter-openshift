@@ -18,7 +18,7 @@ echo $*
 
 #Gnerate a identifier as fileter
 filter=`echo $[$(date +%s%N)/1000000]`
-cd $WORKSPACE/openshift && sh jmeter_cluster_create.sh "$filter" $SLAVES_NUM $CPU $MEM
+cd $WORKSPACE/openshift && sh jmeter_cluster_create.sh "$filter" $SLAVES_NUM "$CPU" "$MEM"
 
 # create workspace
 PERFCI_WORKING_DIR="perf-output/builds/$BUILD_NUMBER/rawdata"
