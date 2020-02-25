@@ -42,7 +42,13 @@ objects:
             protocol: TCP
           - containerPort: 1099
             protocol: TCP
-          resources: {}
+          resources:
+            requests:
+              memory: 368Mi
+              cpu: 200m
+            limits:
+              memory: 512Mi
+              cpu: 300m
           terminationMessagePath: /dev/termination-log
         dnsPolicy: ClusterFirst
         restartPolicy: Always
