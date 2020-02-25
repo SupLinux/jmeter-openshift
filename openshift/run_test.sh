@@ -5,17 +5,14 @@ if [ $# -lt 3 ]; then
     exit 1
 fi
 
+#This args are pass through perfci plugin
 WORKSPACE=$1
 BUILD_NUMBER=$2
 TEST_SCRIPT=$3
-EXTRA_PARAM=""
-SLAVES_NUM=2
-
-
-if [ $# -eq 5 ]; then
-    EXTRA_PARAM=$4
-    SLAVES_NUM=$5
-fi
+EXTRA_PARAM=$4
+SLAVES_NUM=$5
+CPU=$6
+MEM=$7
 
 echo $*
 
