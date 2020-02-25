@@ -26,6 +26,7 @@ tenant=$3
 cpu=$4
 mem=$5
 
+echo $*
 oc project $tenant
 
 echo
