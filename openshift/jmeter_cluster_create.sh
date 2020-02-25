@@ -23,6 +23,8 @@ echo "Current list of projects on the OpenShift cluster:"
 filter=$1
 slave_num=$2
 tenant=$3
+cpu=$4
+mem=$5
 
 oc project $tenant
 
@@ -33,7 +35,7 @@ echo "Creating JMeter slave nodes"
 echo
 
 #oc create -f $working_dir/jmeter_slaves_deploymentconfig.yaml
-oc process -f $working_dir/jmeter_slaves_dc_template.yaml -p FILTER=$filter NUMBER=$slave_num| oc create -f -
+oc process -f $working_dir/jmeter_slaves_dc_template.yaml -p FILTER=$filter NUMBER=$slave_num CPU=$cpu MEM=$mem | oc create -f -
 
 #oc create -f $working_dir/jmeter_slaves_svc.yaml
 oc process -f $working_dir/jmeter_slaves_svc_template.yaml -p FILTER=$filter | oc create -f -
