@@ -27,7 +27,7 @@ objects:
             run: jmeter-master
         spec:
           containers:
-          - image: registry.cn-hangzhou.aliyuncs.com/suplinux/jmeter-master
+          - image: suplinux/jmeter-master
             command: [ "/bin/bash", "-c", "--" ]
             args: [ "while true; do sleep 30; done;" ]
             imagePullPolicy: Always
