@@ -1,9 +1,9 @@
-FROM cloudssky/jmeter-base:latest
+FROM suplinux/jmeter-base:latest
 MAINTAINER Kubernauts-lab
-		
-WORKING /jmeter
+
+WORKDIR /jmeter
 EXPOSE 1099 50000
-		
+
 ENTRYPOINT $JMETER_HOME/bin/jmeter-server \
 -Dserver.rmi.ssl.disable=true \
 -Dserver.rmi.localport=50000 \
