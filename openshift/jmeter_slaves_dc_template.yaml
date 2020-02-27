@@ -34,7 +34,7 @@ objects:
           jmeter_mode: slaves-${FILTER}
       spec:
         containers:
-        - image: registry.cn-hangzhou.aliyuncs.com/suplinux/jmeter-slave
+        - image: suplinux/jmeter-slave
           imagePullPolicy: Always
           name: jmeter-slave
           ports:
