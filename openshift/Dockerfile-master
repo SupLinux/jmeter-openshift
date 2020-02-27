@@ -1,5 +1,5 @@
-FROM cloudssky/jmeter-base:latest
+FROM suplinux/jmeter-base:latest
 MAINTAINER Kubernauts-lab
 WORKDIR /jmeter
-		
+
 EXPOSE 60000
