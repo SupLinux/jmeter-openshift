@@ -85,7 +85,7 @@ pipeline {
 
 ```
 
-- Advanced build scripts(it supports Transfer arbitary parameters 
+- Advanced build scripts(It supports transfer any number of arbitary parameters) 
 
 
 ``` groovy
